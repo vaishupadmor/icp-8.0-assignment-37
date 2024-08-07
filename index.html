@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>to do list</title>
     <style>
+        .head{
+            display: block;
+            margin:30px ;
+            text-align: center;
+        }
         .to-do-div{
             border:4px double black;
             padding:5px;
-            margin:5px;
+            margin:5px auto;
             background-color: pink;
             border-radius: 30px;
             display: flex;
             justify-content: space-between;
+            width: 500px;
+            
 
         }
 
@@ -35,15 +42,39 @@
             color: rgb(163, 15, 15);
             margin: 20px;
         }
+
+        .container{
+           display: flex;
+           justify-content: space-around;
+           margin:10px;
+        }
+
+        .input{
+           width:400px;
+           border-radius: 20px;
+           padding: 5px;
+
+        }
+
+        .btn-add{
+               border-radius: 20px;
+               background-color: red;
+               padding: 5px;
+               color:white;
+
+            }
     </style>
 </head>
 <body>
-    <h1> TO DO LIST</h1>
+    <h1 class="head"> TO DO LIST</h1>
     <div id="tasks-container"></div>
+    <div class="container">
+
+    
         <input  type="text" placeholder="Enter a task" id="input-task" class="input"/>
         <button  onclick="addtotask()" class="btn-add"> Add Task </button>
         
-    
+    </div>
     
     <script>
         const tasks = [];

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+    <style>
+        .to-do-div{
+            border:4px double black;
+            padding:5px;
+            margin:5px;
+            background-color: pink;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .btn{
+            background-color: rgb(129, 37, 37);
+            border: 2px solid #ef4343;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 15px;
+            color: aliceblue;
+            cursor: pointer;
+            box-shadow: 0px 0px 2px 0px red;
+        }
+
+        .btn-add{
+            border-radius: 30px;
+            border:1px solid black;
+            font-size: 7px;
+            background-color: rgb(250, 108, 108);
+            color: rgb(163, 15, 15);
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1> TO DO LIST</h1>
+    <div id="tasks-container"></div>
+        <input  type="text" placeholder="Enter a task" id="input-task" class="input"/>
+        <button  onclick="addtotask()" class="btn-add"> Add Task </button>
+        
+    
+    
+    <script>
+        const tasks = [];
+
+        function loadlocalstorage(){
+            const alltasks = JSON.parse(localStorage.getItem('alltasks'));
+            if(alltasks)
+        {
+            tasks.push(...alltasks)
+          }
+        loadtasks();
+        }
+
+        loadlocalstorage();
+
+
+
+    function loadtasks(){
+
+    localStorage.setItem('alltasks' , JSON.stringify(tasks));
+    const taskElement =document.getElementById("tasks-container");
+    taskElement.innerHTML = '';
+
+        for(const task of tasks)
+    {
+        taskElement.innerHTML += `
+        <div class="to-do-div">
+            ${task}
+
+            <button type="button" class="btn" onclick="delitem('${task}')"> Remove</button>
+            </div> `
+    }
+    
+      }
+
+      function addtotask(){
+        const InputtaskElement = document.getElementById('input-task');
+        const task = InputtaskElement.value;
+
+     if(!task)
+      {
+        alert('please Enter a task');
+        return;
+
+      }
+
+
+      tasks.unshift(task);
+      loadtasks();
+      InputtaskElement.value = '';
+
+
+      }
+      
+
+
+      function delitem(task)
+      {
+        const taskIndex = tasks.indexOf(task)
+        tasks.splice(taskIndex,1)
+
+
+        loadtasks();
+      }
+
+      
+        
+    </script>
+</body>
+</html>

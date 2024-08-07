@@ -7,31 +7,37 @@
     <style>
         .head{
             display: block;
-            margin:30px ;
+            margin-top:100px ;
             text-align: center;
         }
         .to-do-div{
             border:4px double black;
             padding:5px;
             margin:5px auto;
-            background-color: pink;
+            background-color:#D95F59;
+            font-size: 25px;
             border-radius: 30px;
             display: flex;
             justify-content: space-between;
             width: 500px;
+            height:32px;
+            flex-wrap: wrap;
             
 
         }
 
         .btn{
-            background-color: rgb(129, 37, 37);
-            border: 2px solid #ef4343;
+            background-color:#522258;
+            border: 2px solid #522258;
+            padding: 5px;
             border-radius: 30px;
-            margin: 5px;
+            margin-top: 0.5px;
             font-size: 15px;
             color: aliceblue;
             cursor: pointer;
-            box-shadow: 0px 0px 2px 0px red;
+            box-shadow: 0px 0px 2px 0px #8C3061;
+            height: 29px;
+            
         }
 
         .btn-add{
@@ -47,27 +53,43 @@
            display: flex;
            justify-content: space-around;
            margin:10px;
+           position: absolute;
+           top:5px;
+           left:550px;
         }
 
         .input{
-           width:400px;
+           width:350px;
+           height:30px;
            border-radius: 20px;
            padding: 5px;
+           font-size: 20px;
+           color: blue;
+
+
 
         }
 
         .btn-add{
-               border-radius: 20px;
-               background-color: red;
+               border-radius: 10px;
+               background-color: #522258;
+               font-size: 15px;
                padding: 5px;
                color:white;
+               height:30px;
+               width: 80px;
+               margin-top: 9px;
 
+            }
+            .tasks-container{
+                height: 500px;
+                overflow-y: scroll;
             }
     </style>
 </head>
 <body>
     <h1 class="head"> TO DO LIST</h1>
-    <div id="tasks-container"></div>
+    <div id="tasks-container" class="tasks-container"></div>
     <div class="container">
 
     
